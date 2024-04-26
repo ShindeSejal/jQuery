@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>Members of my group are</h3>
+<script>
+    $(document).ready(function() {
+        // Array of person names
+        var personNames = ["Alice", "Bob", "Charlie", "David", "Eva"];
+        
+        // Create an ordered list element
+        var ol = $("<ol>");
+        
+        // Loop through the person names array and append each name as a list item to the ordered list
+        $.each(personNames, function(index, name) {
+            var li = $("<li>").text(name); // Create a list item element with the person's name
+            ol.append(li); // Append the list item to the ordered list
+        });
+        
+        // Append the ordered list to the body
+        $("body").append(ol);
+    });
+    </script>
+    

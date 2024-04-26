@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown List Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<select id="myDropdown">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+</select>
+
+<script>
+$(document).ready(function() {
+    // Attach click event handler to options in the dropdown list
+    $("#myDropdown").on("change", function() {
+        // Get the selected option text
+        var selectedOption = $(this).val();
+        // Display an alert message with the selected option text
+        alert("Selected option: " + selectedOption);
+    });
+});
+</script>
+
+</body>
+</html>

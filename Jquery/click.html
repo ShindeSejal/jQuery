@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery List Item Click</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+  /* Some basic styling for demonstration purposes */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    padding: 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<ul id="fruitList">
+  <li>Apple</li>
+  <li>Kiwi</li>
+  <li>Banana</li>
+</ul>
+
+<script>
+$(document).ready(function(){
+  // Add click event handler to all list items
+  $('#fruitList li').click(function(){
+    // Get the text content of the clicked list item
+    var chosenFruit = $(this).text();
+    // Display the chosen item
+    alert(chosenFruit);
+  });
+});
+</script>
+
+</body>
+</html>

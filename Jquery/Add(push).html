@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Array to store person objects
+            var persons = [];
+
+            // Function to add person details to the array
+            $('#addBtn').click(function () {
+                var name = $('#name').val();
+                var age = $('#age').val();
+                var employed = $('#employed').prop('checked');
+
+                // Create a person object
+                var person = {
+                    name: name,
+                    age:  age,
+                    employed: employed
+                };
+
+                // Add person object to the array
+                persons.push(person);
+                // Clear input fields after adding
+                $('#name').val('');
+                $('#age').val('');
+                $('#employed').prop('checked', false);
+            });
+
+            // Function to display persons details in a table
+            $('#displayBtn').click(function () {
+                var table = $('<table>').addClass('person-table');
+                var headerRow = $('<tr>').append($('<th>').text('Name'), $('<th>').text('Age'), $('<th>').text('Employed'));
+                table.append(headerRow);
+
+                // Iterate through the persons array
+                persons.forEach(function (person) {
+                    var row = $('<tr>').append($('<td>').text(person.name), $('<td>').text(person.age), $('<td>').text(person.employed ? 'Yes' : 'No'));
+                    table.append(row);
+                });
+
+                // Display the table
+                $('#display').empty().append(table);
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <h2>Add Person</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="employed">Employed:</label>
+        <input type="checkbox" id="employed" name="employed"><br><br>
+
+        <button type="button" id="addBtn">Add</button>
+    </form>
+
+    <h2>Display Persons</h2>
+    <button type="button" id="displayBtn">Display</button>
+    <div id="display"></div>
+
+</body>
+
+</html>
